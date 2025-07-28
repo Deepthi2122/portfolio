@@ -29,7 +29,9 @@ const Footer = () => {
               Full Stack Developer | Building the future, one line of code at a time
             </p>
           </div>
-          
+
+          {/* Remove or comment the below section if not needed */}
+          {/* 
           <div className="border-t border-border pt-8">
             <p className="text-muted-foreground flex items-center justify-center gap-2">
               Made with <Heart className="h-4 w-4 text-red-500 fill-current" /> and lots of coffee
@@ -38,6 +40,7 @@ const Footer = () => {
               © 2024 Deepthi Naradasu. All rights reserved.
             </p>
           </div>
+          */}
         </div>
       </div>
     </footer>
