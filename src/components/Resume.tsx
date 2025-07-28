@@ -1,4 +1,4 @@
-import { Download, GraduationCap } from 'lucide-react';
+import { Download, GraduationCap, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 
@@ -13,8 +13,16 @@ const Resume = () => {
   ];
 
   const downloadResume = () => {
-    // Replace this with actual file download logic
-    alert("Resume download functionality would be implemented here");
+    const link = document.createElement('a');
+    link.href = '/resume.pdf'; // Path inside public folder
+    link.download = 'Deepthi_Naradasu_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const viewResume = () => {
+    window.open('/resume.pdf', '_blank');
   };
 
   return (
@@ -23,18 +31,29 @@ const Resume = () => {
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl font-bold mb-4">Resume</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-8" />
-          <Button 
-            variant="gradient" 
-            size="lg"
-            onClick={downloadResume}
-            className="group"
-          >
-            <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-            Download Resume PDF
-          </Button>
+          <div className="flex justify-center gap-4 flex-wrap">
+            <Button 
+              variant="gradient" 
+              size="lg"
+              onClick={downloadResume}
+              className="group"
+            >
+              <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+              Download Resume PDF
+            </Button>
+            <Button 
+              variant="outline"
+              size="lg"
+              onClick={viewResume}
+              className="group"
+            >
+              <Eye className="mr-2 h-5 w-5 text-blue-600 group-hover:scale-110" />
+              View Resume
+            </Button>
+          </div>
         </div>
 
-        {/* Education Section Only */}
+        {/* Education Section */}
         <div className="animate-fade-in-left">
           <div className="flex items-center gap-3 mb-8">
             <div className="p-3 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg">
